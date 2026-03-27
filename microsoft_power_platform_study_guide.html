@@ -1,34 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PL-900 — Session 1 — Platform Overview & Business Value</title>
+<style>
+
+:root{--blue:#0078D4;--blue-dark:#005A9E;--blue-light:#EFF6FC;--blue-mid:#C7E0F4;--text:#201F1E;--text2:#484644;--muted:#797775;--border:#EDEBE9;--bg:#FAF9F8;--white:#fff;--radius:8px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%;}
+header{background:var(--white);border-bottom:1px solid var(--border);padding:0 1.25rem;display:flex;align-items:center;gap:10px;height:52px;position:sticky;top:0;z-index:100;}
+.back{font-size:13px;color:var(--blue);text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.back:hover{text-decoration:underline;}
+.htitle{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hbadge{margin-left:auto;font-size:11px;padding:2px 9px;border-radius:10px;font-weight:600;background:var(--blue-light);color:var(--blue-dark);border:1px solid var(--blue-mid);white-space:nowrap;flex-shrink:0;}
+.content-wrap{max-width:900px;margin:0 auto;padding:1.5rem 1.25rem 4rem;}
+@media(max-width:480px){
+  .htitle{font-size:12px;}
+  .content-wrap{padding:1rem 1rem 3rem;}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="index.html">← Back</a>
+  <span class="htitle">PL-900 — Session 1 — Platform Overview & Business Value</span>
+  <span class="hbadge">Exam weight: 15–20%</span>
+</header>
+<div class="content-wrap">
 
 <style>
   :root { --accent: #0078D4; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-sans); }
+  body { font-family: 'Segoe UI', -apple-system, sans-serif; }
   .container { padding: 1rem 0; }
   .header { margin-bottom: 1.5rem; }
-  .header h1 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
-  .header p { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
-  .progress-bar { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 12px; }
+  .header h1 { font-size: 20px; font-weight: 500; color: var(--text); }
+  .header p { font-size: 13px; color: var(--text2); margin-top: 4px; }
+  .progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 12px; }
   .progress-fill { height: 100%; background: #0078D4; border-radius: 2px; transition: width 0.4s ease; }
-  .progress-label { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+  .progress-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
 
-  .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 0; }
-  .tab-btn { padding: 8px 14px; font-size: 13px; font-weight: 400; border: none; background: transparent; cursor: pointer; color: var(--color-text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; border-radius: 0; }
-  .tab-btn:hover { color: var(--color-text-primary); }
+  .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--border); padding-bottom: 0; }
+  .tab-btn { padding: 8px 14px; font-size: 13px; font-weight: 400; border: none; background: transparent; cursor: pointer; color: var(--text2); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; border-radius: 0; }
+  .tab-btn:hover { color: var(--text); }
   .tab-btn.active { color: #0078D4; border-bottom-color: #0078D4; font-weight: 500; }
 
   .section { display: none; }
   .section.active { display: block; }
 
-  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 12px; }
-  .card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-  .card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .card { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 12px; }
+  .card-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .card-body { font-size: 13px; color: var(--text2); line-height: 1.6; }
   .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
-  .badge-blue { background: var(--color-background-info); color: var(--color-text-info); }
-  .badge-green { background: var(--color-background-success); color: var(--color-text-success); }
-  .badge-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .badge-blue { background: var(--blue-light); color: var(--blue-dark); }
+  .badge-green { background: #EAF3DE; color: #173404; }
+  .badge-amber { background: #FAEEDA; color: #412402; }
 
   .layers { display: flex; flex-direction: column; gap: 8px; }
-  .layer { border-radius: var(--border-radius-md); padding: 12px 16px; border: 0.5px solid; cursor: pointer; transition: all 0.15s; }
+  .layer { border-radius: 6px; padding: 12px 16px; border: 0.5px solid; cursor: pointer; transition: all 0.15s; }
   .layer:hover { filter: brightness(0.97); }
   .layer-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
   .layer-items { font-size: 12px; opacity: 0.8; }
@@ -41,46 +72,75 @@
   .layer-gov { background: #F1EFE8; border-color: #D3D1C7; color: #2C2C2A; }
 
   .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tool-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; cursor: pointer; transition: all 0.15s; }
-  .tool-card:hover { background: var(--color-background-secondary); }
+  .tool-card { border: 0.5px solid var(--border); border-radius: 6px; padding: 12px; cursor: pointer; transition: all 0.15s; }
+  .tool-card:hover { background: var(--bg); }
   .tool-card.selected { border-color: #0078D4; background: #E6F1FB; }
   .tool-icon { font-size: 20px; margin-bottom: 6px; }
-  .tool-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
-  .tool-tag { font-size: 11px; color: var(--color-text-secondary); }
-  .tool-detail { margin-top: 1rem; padding: 1rem 1.25rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); display: none; }
+  .tool-name { font-size: 14px; font-weight: 500; color: var(--text); }
+  .tool-tag { font-size: 11px; color: var(--text2); }
+  .tool-detail { margin-top: 1rem; padding: 1rem 1.25rem; background: var(--bg); border-radius: 6px; display: none; }
   .tool-detail.open { display: block; }
-  .tool-detail h3 { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
-  .tool-detail p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
-  .use-case { margin-top: 8px; padding: 8px 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
-  .use-case strong { color: var(--color-text-primary); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .tool-detail h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .tool-detail p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+  .use-case { margin-top: 8px; padding: 8px 12px; background: var(--white); border-radius: 6px; border: 0.5px solid var(--border); font-size: 12px; color: var(--text2); line-height: 1.5; }
+  .use-case strong { color: var(--text); display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
 
   .qa-list { display: flex; flex-direction: column; gap: 8px; }
-  .qa-item { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); overflow: hidden; }
-  .qa-question { padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
-  .qa-question:hover { background: var(--color-background-secondary); }
-  .qa-question .arrow { transition: transform 0.2s; font-size: 12px; color: var(--color-text-secondary); }
+  .qa-item { border: 0.5px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .qa-question { padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
+  .qa-question:hover { background: var(--bg); }
+  .qa-question .arrow { transition: transform 0.2s; font-size: 12px; color: var(--text2); }
   .qa-question.open .arrow { transform: rotate(180deg); }
-  .qa-answer { display: none; padding: 12px 16px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; background: var(--color-background-secondary); border-top: 0.5px solid var(--color-border-tertiary); }
+  .qa-answer { display: none; padding: 12px 16px; font-size: 13px; color: var(--text2); line-height: 1.6; background: var(--bg); border-top: 0.5px solid var(--border); }
   .qa-answer.open { display: block; }
 
   .compare-table { width: 100%; font-size: 13px; border-collapse: collapse; }
-  .compare-table th { text-align: left; padding: 8px 12px; font-weight: 500; color: var(--color-text-primary); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 0.5px solid var(--color-border-tertiary); }
-  .compare-table td { padding: 8px 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; }
+  .compare-table th { text-align: left; padding: 8px 12px; font-weight: 500; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 0.5px solid var(--border); }
+  .compare-table td { padding: 8px 12px; color: var(--text2); border-bottom: 0.5px solid var(--border); vertical-align: top; }
   .compare-table tr:last-child td { border-bottom: none; }
-  .dot-yes { color: var(--color-text-success); }
-  .dot-no { color: var(--color-text-danger); }
-  .dot-extra { color: var(--color-text-warning); }
+  .dot-yes { color: #173404; }
+  .dot-no { color: #501313; }
+  .dot-extra { color: #412402; }
 
   .key-terms { display: flex; flex-direction: column; gap: 8px; }
-  .term { display: flex; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); align-items: flex-start; }
+  .term { display: flex; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
   .term:last-child { border-bottom: none; }
-  .term-word { font-size: 14px; font-weight: 500; color: var(--color-text-primary); min-width: 130px; }
-  .term-def { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .term-word { font-size: 14px; font-weight: 500; color: var(--text); min-width: 130px; }
+  .term-def { font-size: 13px; color: var(--text2); line-height: 1.5; }
 
   .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .summary-card { padding: 12px 14px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); background: var(--color-background-primary); }
-  .summary-card h4 { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
-  .summary-card ul { padding-left: 14px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+  .summary-card { padding: 12px 14px; border: 0.5px solid var(--border); border-radius: 6px; background: var(--white); }
+  .summary-card h4 { font-size: 13px; font-weight: 500; color: var(--text2); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .summary-card ul { padding-left: 14px; font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── MOBILE FIXES ── */
+  .nav-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { white-space: nowrap; flex-shrink: 0; }
+
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { min-width: 500px; }
+
+  @media (max-width: 600px) {
+    .tool-grid { grid-template-columns: 1fr; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr !important; }
+    .three-col { grid-template-columns: 1fr !important; }
+    .kv-row, .r { flex-direction: column; gap: 4px; }
+    .kv-key, .rk { min-width: unset; font-size: 12px; }
+    .term { flex-direction: column; gap: 3px; }
+    .term-word { min-width: unset; }
+    .card { padding: 0.875rem 1rem; }
+    .layer { padding: 10px 13px; }
+    .qa-question { padding: 10px 13px; font-size: 13px; }
+    .qa-answer { padding: 10px 13px; }
+    .tab-btn { padding: 7px 11px; font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 7px 10px; font-size: 12px; }
+  }
+  @media (max-width: 400px) {
+    .card-title { font-size: 14px; }
+    .card-body { font-size: 12px; }
+  }
 </style>
 
 <div class="container">
@@ -105,7 +165,7 @@
       <div class="card-title">What is Microsoft Power Platform?</div>
       <div class="card-body">A suite of low-code tools that helps organizations build apps, automate processes, analyze data, and create digital experiences. Built on a modular architecture — each layer adds capability to the next.</div>
     </div>
-    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:10px;">Click each layer to expand details ↓</p>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:10px;">Click each layer to expand details ↓</p>
     <div class="layers">
       <div class="layer layer-ai" onclick="toggleLayer(this)">
         <div class="layer-title">🤖 AI Layer — Copilot</div>
@@ -161,7 +221,7 @@
 
   <!-- TAB 2: CORE TOOLS -->
   <div id="tab-tools" class="section">
-    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:12px;">Click a tool to see details and examples ↓</p>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px;">Click a tool to see details and examples ↓</p>
     <div class="tool-grid">
       <div class="tool-card" onclick="showTool('apps',this)">
         <div class="tool-icon">📱</div>
@@ -209,7 +269,7 @@
       <div class="card-body">Pre-built integrations that connect apps, data, and services. They come with predefined actions so users can build workflows without writing custom code.</div>
     </div>
 
-    <table class="compare-table" style="margin-bottom:16px;">
+    <div class="table-wrap"><table class="compare-table" style="margin-bottom:16px;">
       <tr>
         <th>Feature</th>
         <th>Standard Connectors</th>
@@ -239,7 +299,7 @@
         <td>Custom connectors</td>
         <td colspan="2">Can be created when no standard/premium connector covers a proprietary system</td>
       </tr>
-    </table>
+    </table></div>
 
     <div class="card">
       <div class="card-title">Microsoft Dataverse</div>
@@ -271,7 +331,7 @@
         <div class="key-terms">
           <div class="term">
             <div class="term-word">In Power Apps</div>
-            <div class="term-def">Controls app behavior with formulas. Example: <code style="font-family:var(--font-mono);font-size:12px;">If(IsBlank(PropertyName.Text), false, true)</code> — shows/hides UI elements based on input.</div>
+            <div class="term-def">Controls app behavior with formulas. Example: <code style="font-family:'Consolas', 'Courier New', monospace;font-size:12px;">If(IsBlank(PropertyName.Text), false, true)</code> — shows/hides UI elements based on input.</div>
           </div>
           <div class="term">
             <div class="term-word">In Dataverse</div>
@@ -357,7 +417,7 @@
       </div>
     </div>
 
-    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:10px;">Click questions to reveal answers ↓</p>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:10px;">Click questions to reveal answers ↓</p>
     <div class="qa-list">
       <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What are the four core tools in the Application & Automation layer?<span class="arrow">▼</span></div><div class="qa-answer">Power Apps (custom app builder), Power Automate (workflow automation), Power BI (analytics and dashboards), and Power Pages (external-facing business websites).</div></div>
       <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">What is the role of Copilot in Power Platform?<span class="arrow">▼</span></div><div class="qa-answer">Copilot is the AI layer embedded across all tools — not a standalone product. It enhances productivity through natural language interactions, intelligent suggestions, and automation across Power Apps, Power Automate, Power BI, Power Pages, and Dataverse.</div></div>
@@ -424,3 +484,7 @@ visited.add('overview');
 document.getElementById('progress').style.width = '20%';
 document.getElementById('progress-label').textContent = '1 of 5 sections visited';
 </script>
+
+</div>
+</body>
+</html>

@@ -1,68 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PL-900 — Session 3 — Power Pages</title>
+<style>
+
+:root{--blue:#0078D4;--blue-dark:#005A9E;--blue-light:#EFF6FC;--blue-mid:#C7E0F4;--text:#201F1E;--text2:#484644;--muted:#797775;--border:#EDEBE9;--bg:#FAF9F8;--white:#fff;--radius:8px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-text-size-adjust:100%;}
+header{background:var(--white);border-bottom:1px solid var(--border);padding:0 1.25rem;display:flex;align-items:center;gap:10px;height:52px;position:sticky;top:0;z-index:100;}
+.back{font-size:13px;color:var(--blue);text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.back:hover{text-decoration:underline;}
+.htitle{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hbadge{margin-left:auto;font-size:11px;padding:2px 9px;border-radius:10px;font-weight:600;background:var(--blue-light);color:var(--blue-dark);border:1px solid var(--blue-mid);white-space:nowrap;flex-shrink:0;}
+.content-wrap{max-width:900px;margin:0 auto;padding:1.5rem 1.25rem 4rem;}
+@media(max-width:480px){
+  .htitle{font-size:12px;}
+  .content-wrap{padding:1rem 1rem 3rem;}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="index.html">← Back</a>
+  <span class="htitle">PL-900 — Session 3 — Power Pages</span>
+  <span class="hbadge">Exam weight: 10–15%</span>
+</header>
+<div class="content-wrap">
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-.container { padding: 1rem 0; font-family: var(--font-sans); }
+.container { padding: 1rem 0; font-family: 'Segoe UI', -apple-system, sans-serif; }
 .header { margin-bottom: 1.5rem; }
-.header h1 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
-.header p { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
-.progress-bar { height: 4px; background: var(--color-border-tertiary); border-radius: 2px; margin-top: 12px; }
+.header h1 { font-size: 20px; font-weight: 500; color: var(--text); }
+.header p { font-size: 13px; color: var(--text2); margin-top: 4px; }
+.progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 12px; }
 .progress-fill { height: 100%; background: #0078D4; border-radius: 2px; transition: width 0.4s ease; }
-.progress-label { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
-.nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.tab-btn { padding: 8px 14px; font-size: 13px; font-weight: 400; border: none; background: transparent; cursor: pointer; color: var(--color-text-secondary); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; border-radius: 0; }
-.tab-btn:hover { color: var(--color-text-primary); }
+.progress-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+.nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--border); }
+.tab-btn { padding: 8px 14px; font-size: 13px; font-weight: 400; border: none; background: transparent; cursor: pointer; color: var(--text2); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; border-radius: 0; }
+.tab-btn:hover { color: var(--text); }
 .tab-btn.active { color: #0078D4; border-bottom-color: #0078D4; font-weight: 500; }
 .section { display: none; }
 .section.active { display: block; }
-.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 12px; }
-.card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
-.card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.card { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 12px; }
+.card-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+.card-body { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; display: inline-block; }
-.badge-blue { background: var(--color-background-info); color: var(--color-text-info); }
-.badge-green { background: var(--color-background-success); color: var(--color-text-success); }
-.badge-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+.badge-blue { background: var(--blue-light); color: var(--blue-dark); }
+.badge-green { background: #EAF3DE; color: #173404; }
+.badge-amber { background: #FAEEDA; color: #412402; }
 .key-terms { display: flex; flex-direction: column; }
-.term { display: flex; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); align-items: flex-start; }
+.term { display: flex; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
 .term:last-child { border-bottom: none; }
-.term-word { font-size: 13px; font-weight: 500; color: var(--color-text-primary); min-width: 150px; flex-shrink: 0; }
-.term-def { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.term-word { font-size: 13px; font-weight: 500; color: var(--text); min-width: 150px; flex-shrink: 0; }
+.term-def { font-size: 13px; color: var(--text2); line-height: 1.5; }
 .compare-table { width: 100%; font-size: 13px; border-collapse: collapse; }
-.compare-table th { text-align: left; padding: 8px 12px; font-weight: 500; color: var(--color-text-primary); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 0.5px solid var(--color-border-tertiary); }
-.compare-table td { padding: 8px 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); vertical-align: top; font-size: 13px; }
+.compare-table th { text-align: left; padding: 8px 12px; font-weight: 500; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 0.5px solid var(--border); }
+.compare-table td { padding: 8px 12px; color: var(--text2); border-bottom: 0.5px solid var(--border); vertical-align: top; font-size: 13px; }
 .compare-table tr:last-child td { border-bottom: none; }
-.accordion-item { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); overflow: hidden; margin-bottom: 8px; }
-.accordion-q { padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--color-text-primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
-.accordion-q:hover { background: var(--color-background-secondary); }
-.accordion-q .arrow { transition: transform 0.2s; font-size: 12px; color: var(--color-text-secondary); }
+.accordion-item { border: 0.5px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+.accordion-q { padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
+.accordion-q:hover { background: var(--bg); }
+.accordion-q .arrow { transition: transform 0.2s; font-size: 12px; color: var(--text2); }
 .accordion-q.open .arrow { transform: rotate(180deg); }
-.accordion-a { display: none; padding: 12px 16px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; background: var(--color-background-secondary); border-top: 0.5px solid var(--color-border-tertiary); }
+.accordion-a { display: none; padding: 12px 16px; font-size: 13px; color: var(--text2); line-height: 1.6; background: var(--bg); border-top: 0.5px solid var(--border); }
 .accordion-a.open { display: block; }
 .workspace-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-.ws-card { border-radius: var(--border-radius-md); padding: 12px 14px; border: 0.5px solid; cursor: pointer; transition: all 0.15s; }
+.ws-card { border-radius: 6px; padding: 12px 14px; border: 0.5px solid; cursor: pointer; transition: all 0.15s; }
 .ws-card:hover { filter: brightness(0.97); }
 .ws-card h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
 .ws-card p { font-size: 12px; line-height: 1.5; opacity: 0.8; }
-.ws-detail { display: none; padding: 12px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); margin-bottom: 12px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.ws-detail { display: none; padding: 12px 14px; background: var(--bg); border-radius: 6px; margin-bottom: 12px; font-size: 13px; color: var(--text2); line-height: 1.6; }
 .ws-detail.open { display: block; }
-.ws-detail strong { color: var(--color-text-primary); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.ws-detail strong { color: var(--text); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
 .w-pages { background: #E6F1FB; border-color: #B5D4F4; color: #042C53; }
 .w-styling { background: #FAEEDA; border-color: #FAC775; color: #412402; }
 .w-data { background: #EAF3DE; border-color: #C0DD97; color: #173404; }
 .w-setup { background: #EEEDFE; border-color: #CECBF6; color: #26215C; }
 .step-list { display: flex; flex-direction: column; gap: 0; }
-.step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 0.5px solid var(--color-border-tertiary); align-items: flex-start; }
+.step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 0.5px solid var(--border); align-items: flex-start; }
 .step-item:last-child { border-bottom: none; }
-.step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-info); color: var(--color-text-info); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.step-body h4 { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
-.step-body p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--blue-light); color: var(--blue-dark); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-body h4 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.step-body p { font-size: 13px; color: var(--text2); line-height: 1.5; }
 .use-case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-.uc-card { padding: 12px 14px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); }
-.uc-card h4 { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 5px; }
-.uc-card p { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.uc-card { padding: 12px 14px; border: 0.5px solid var(--border); border-radius: 6px; }
+.uc-card h4 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 5px; }
+.uc-card p { font-size: 12px; color: var(--text2); line-height: 1.5; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.mini-card { padding: 12px 14px; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); background: var(--color-background-primary); }
-.mini-card h4 { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
-.mini-card ul { padding-left: 14px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
+.mini-card { padding: 12px 14px; border: 0.5px solid var(--border); border-radius: 6px; background: var(--white); }
+.mini-card h4 { font-size: 12px; font-weight: 500; color: var(--text2); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.mini-card ul { padding-left: 14px; font-size: 13px; color: var(--text2); line-height: 1.7; }
+
+  /* ── MOBILE FIXES ── */
+  .nav-tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 2px; }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { white-space: nowrap; flex-shrink: 0; }
+
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .compare-table { min-width: 500px; }
+
+  @media (max-width: 600px) {
+    .tool-grid { grid-template-columns: 1fr; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr !important; }
+    .three-col { grid-template-columns: 1fr !important; }
+    .kv-row, .r { flex-direction: column; gap: 4px; }
+    .kv-key, .rk { min-width: unset; font-size: 12px; }
+    .term { flex-direction: column; gap: 3px; }
+    .term-word { min-width: unset; }
+    .card { padding: 0.875rem 1rem; }
+    .layer { padding: 10px 13px; }
+    .qa-question { padding: 10px 13px; font-size: 13px; }
+    .qa-answer { padding: 10px 13px; }
+    .tab-btn { padding: 7px 11px; font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 7px 10px; font-size: 12px; }
+  }
+  @media (max-width: 400px) {
+    .card-title { font-size: 14px; }
+    .card-body { font-size: 12px; }
+  }
 </style>
 
 <div class="container">
@@ -85,7 +145,7 @@
   <div id="tab-overview" class="section active">
     <div class="card">
       <div class="card-title">What is Microsoft Power Pages?</div>
-      <div class="card-body">A secure, enterprise-grade, low-code Software as a Service (SaaS) platform for creating, hosting, and administering modern, external-facing business websites. Accessible to both low-code makers and professional developers. URL: <span style="font-family:var(--font-mono);font-size:12px;">powerpages.microsoft.com</span></div>
+      <div class="card-body">A secure, enterprise-grade, low-code Software as a Service (SaaS) platform for creating, hosting, and administering modern, external-facing business websites. Accessible to both low-code makers and professional developers. URL: <span style="font-family:'Consolas', 'Courier New', monospace;font-size:12px;">powerpages.microsoft.com</span></div>
     </div>
 
     <div class="card">
@@ -120,12 +180,12 @@
     <div class="card">
       <div class="card-title">Three Ways to Build a Site</div>
       <div class="card-body">
-        <table class="compare-table">
+        <div class="table-wrap"><table class="compare-table">
           <tr><th>Method</th><th>Best for</th><th>How it works</th></tr>
           <tr><td>AI-powered Copilot</td><td>Non-developers wanting fast setup</td><td>Describe site purpose, users, and features in natural language. Copilot generates site name, address, homepage layout, and additional pages. Then refine in Design Studio.</td></tr>
           <tr><td>Manual from scratch</td><td>Users wanting full control</td><td>Start with a blank canvas and design every detail to meet specific, unique requirements.</td></tr>
           <tr><td>Developer / pro-code</td><td>Advanced scenarios needing custom code</td><td>Access tools like Visual Studio Code, GitHub, and Azure DevOps. Integrate custom APIs and advanced functionality beyond low-code scope.</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
 
@@ -208,13 +268,13 @@
     <div class="card">
       <div class="card-title">Identity Providers Supported</div>
       <div class="card-body">
-        <table class="compare-table">
+        <div class="table-wrap"><table class="compare-table">
           <tr><th>Provider</th><th>Best for</th><th>Example scenario</th></tr>
           <tr><td>Microsoft (Entra ID)</td><td>Internal / employee portals</td><td>Corporate intranet restricting access to verified company accounts</td></tr>
           <tr><td>LinkedIn</td><td>Partner / professional portals</td><td>Event registration site where professionals log in with existing credentials</td></tr>
           <tr><td>Google</td><td>Public-facing / consumer portals</td><td>Customer service site where consumers log in with familiar credentials</td></tr>
           <tr><td>Other third-party</td><td>Specialized audience needs</td><td>Custom OAuth providers for specific industry or regional requirements</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
 
@@ -248,24 +308,24 @@
     <div class="card">
       <div class="card-title">Forms Built in Lab 3 — Quick Reference</div>
       <div class="card-body">
-        <table class="compare-table">
+        <div class="table-wrap"><table class="compare-table">
           <tr><th>Form name</th><th>Table</th><th>Data mode</th><th>Page used on</th></tr>
           <tr><td>Create Event</td><td>Event</td><td>Create new record</td><td>New Event page</td></tr>
           <tr><td>View Event</td><td>Event</td><td>Read-only (+ Event Sessions subgrid)</td><td>View Event page</td></tr>
           <tr><td>Edit Event (based on Create Event)</td><td>Event</td><td>Update existing records</td><td>Edit Event page</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Permissions Configured in Lab 3</div>
       <div class="card-body">
-        <table class="compare-table">
+        <div class="table-wrap"><table class="compare-table">
           <tr><th>Permission name</th><th>Table</th><th>Access type</th><th>Roles assigned</th></tr>
           <tr><td>Events</td><td>Event</td><td>Read (global)</td><td>Administrators, Anonymous, Authenticated</td></tr>
           <tr><td>Create Events</td><td>Event</td><td>Read + Create</td><td>Administrators, Anonymous, Authenticated</td></tr>
           <tr><td>Edit Event</td><td>Event</td><td>Read + Update</td><td>Administrators, Anonymous, Authenticated</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
   </div>
@@ -289,7 +349,7 @@
       </div>
     </div>
 
-    <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:10px;">Click to reveal answers ↓</p>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:10px;">Click to reveal answers ↓</p>
     <div>
       <div class="accordion-item"><div class="accordion-q" onclick="toggleQ(this)">What are the four workspaces in the Power Pages Design Studio and what does each do?<span class="arrow">▼</span></div><div class="accordion-a">Pages — create, edit, and arrange web pages and navigation. Styling — apply themes, color palettes, font styles, and branding with real-time preview. Data — connect to Dataverse, create and manage tables, forms, and views without leaving the site builder. Setup — configure site settings, performance tools, integrations (Power Automate), and Copilot features like Site Search and Agent Configuration.</div></div>
       <div class="accordion-item"><div class="accordion-q" onclick="toggleQ(this)">What are the five security principles of Power Pages?<span class="arrow">▼</span></div><div class="accordion-a">Multiple identity providers (Microsoft, LinkedIn, Google, etc.), role-based security (users assigned roles defining access), table permissions (granular Dataverse record access control), page permissions (restrict access to specific pages by role), and site visibility (configure whether a site is public or private).</div></div>
@@ -337,3 +397,7 @@ function toggleQ(el) {
   el.nextElementSibling.classList.toggle('open');
 }
 </script>
+
+</div>
+</body>
+</html>
